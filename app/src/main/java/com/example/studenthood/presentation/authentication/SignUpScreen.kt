@@ -21,6 +21,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -36,7 +37,7 @@ fun SignUpPage(navController: NavHostController) {
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(20.dp),
-            onClick = {navController.navigate(Routes.SignUpScreen.route) },
+            onClick = {navController.navigate(Routes.LoginScreen.route) },
             style = TextStyle(
                 fontSize = 14.sp,
                 fontFamily = FontFamily.Default,
@@ -54,7 +55,7 @@ fun SignUpPage(navController: NavHostController) {
         val username = remember { mutableStateOf(TextFieldValue()) }
         val password = remember { mutableStateOf(TextFieldValue()) }
 
-        Text(text = "Login", style = TextStyle(fontSize = 40.sp, fontFamily = FontFamily.Cursive))
+        Text(text = "Sign Up", style = TextStyle(fontSize = 40.sp, fontFamily = FontFamily.Cursive))
 
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -88,18 +89,22 @@ fun SignUpPage(navController: NavHostController) {
                     .fillMaxWidth()
                     .height(50.dp)
             ) {
-                Text(text = "Login")
+                Text(text = "SignUp")
             }
         }
 
         Spacer(modifier = Modifier.height(20.dp))
-        ClickableText(
-            text = AnnotatedString("Forgot password?"),
-            onClick = { navController.navigate(Routes.ForgotPasswordScreen.route) },
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontFamily = FontFamily.Default
-            )
-        )
     }
+}
+
+@Composable
+@Preview
+fun SignUpScreenPreview(){
+    //LoginPage(0f)
+}
+
+@Composable
+@Preview
+fun SignUpScreenDarkPreview(){
+    //LoginPage(0f)
 }

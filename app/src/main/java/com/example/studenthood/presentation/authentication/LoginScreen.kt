@@ -19,6 +19,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -29,7 +30,7 @@ import com.example.studenthood.util.Routes
 fun LoginPage(navController: NavHostController) {
     Box(modifier = Modifier.fillMaxSize()) {
         ClickableText(
-            text = AnnotatedString("Already a user"),
+            text = AnnotatedString("New User"),
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(20.dp),
@@ -90,4 +91,16 @@ fun LoginPage(navController: NavHostController) {
             )
         )
     }
+}
+
+@Composable
+@Preview
+fun LoginPagePreview(){
+    //LoginPage(0f)
+}
+
+@Composable
+@Preview
+fun LoginPageDarkPreview(){
+    //LoginPage(0f)
 }
