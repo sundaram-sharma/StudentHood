@@ -29,7 +29,7 @@ import com.example.studenthood.util.Routes
 fun LoginPage(navController: NavHostController) {
     Box(modifier = Modifier.fillMaxSize()) {
         ClickableText(
-            text = AnnotatedString("Sign up here"),
+            text = AnnotatedString("Already a user"),
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(20.dp),

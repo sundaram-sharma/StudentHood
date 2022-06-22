@@ -1,6 +1,11 @@
 package com.example.studenthood.presentation.main
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -10,21 +15,11 @@ import com.example.studenthood.presentation.authentication.SignUpPage
 import com.example.studenthood.util.Routes
 
 @Composable
-fun MainScreen(){
-    val navController = rememberNavController()
-
-    NavHost(navController = navController, startDestination = Routes.LoginScreen.route) {
-
-        composable(Routes.LoginScreen.route) {
-            LoginPage(navController = navController)
+fun HomeScreen(navController: NavController){
+    Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(text="Profile Screen")
         }
-
-        composable(Routes.SignUpScreen.route) {
-            SignUpPage(navController = navController)
-        }
-
-        composable(Routes.ForgotPasswordScreen.route) { navBackStack ->
-            ForgotPasswordPage(navController = navController)
-        }
+        //BottomNavigationMenu(selectedItem = BottomNavigationItem.PROFILE, navController = navController)
     }
 }
