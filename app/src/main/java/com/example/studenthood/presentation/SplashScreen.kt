@@ -40,7 +40,7 @@ fun SplashScreenPage(navController: NavHostController){
         startAnimation = true
         delay(4000)
         navController.popBackStack() //to remove splash from backstack
-        navController.navigate(Routes.HomeScreen.route)
+        navController.navigate(Routes.LoginScreen.route)
     }
 
 
