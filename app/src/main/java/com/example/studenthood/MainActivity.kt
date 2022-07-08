@@ -12,11 +12,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.studenthood.presentation.SplashScreen
 import com.example.studenthood.presentation.SplashScreenPage
 import com.example.studenthood.presentation.authentication.ForgotPasswordPage
 import com.example.studenthood.presentation.authentication.LoginPage
 import com.example.studenthood.presentation.authentication.SignUpPage
+import com.example.studenthood.presentation.main.MainPage
 import com.example.studenthood.ui.theme.StudentHoodTheme
 import com.example.studenthood.util.Routes
 
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen()
+                    MainActivityPage()
                 }
             }
         }
@@ -44,18 +44,22 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     StudentHoodTheme {
-        MainScreen()
+        MainActivityPage()
     }
 }
 
 @Composable
-fun MainScreen(){
+fun MainActivityPage(){
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Routes.SplashScreen.route) {
+    NavHost(navController = navController, startDestination = Routes.MainScreen.route) {
 
         composable(Routes.SplashScreen.route) { navBackStack ->
             SplashScreenPage(navController = navController)
+        }
+
+        composable(Routes.SplashScreen.route) {
+            MainPage(navController = navController)
         }
 
         composable(Routes.LoginScreen.route) {
