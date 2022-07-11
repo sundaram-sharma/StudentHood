@@ -1,5 +1,6 @@
 package com.example.studenthood.presentation.authentication
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,8 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.presentation.CustomTopAppBar
 
 @Composable
@@ -40,4 +43,18 @@ fun ScaffoldWithTopBarForgotPass(navController: NavHostController) {
                 )
             }
         })
+}
+
+@Composable
+@Preview(name = "Light Mode", showBackground = true)
+fun ForgotPasswordPagePreview(){
+    ForgotPasswordPage(rememberNavController())
+
+}
+
+@Composable
+@Preview(uiMode= Configuration.UI_MODE_NIGHT_YES, showBackground = true, name="Dark Mode")
+fun ForgotPasswordPageDarkPreview(){
+    ForgotPasswordPage(rememberNavController())
+
 }

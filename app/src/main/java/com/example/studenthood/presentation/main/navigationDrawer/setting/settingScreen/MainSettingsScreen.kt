@@ -1,4 +1,4 @@
-package com.example.studenthood.presentation.setting
+package com.example.studenthood.presentation.main.navigationDrawer.setting
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.sp
 import com.example.studenthood.R
 
 @Composable
-fun HomeScreen() {
+fun MainSettingsScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -25,7 +25,7 @@ fun HomeScreen() {
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "Home View",
+            text = "Settings View",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -37,6 +37,6 @@ fun HomeScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
-    HomeScreen()
+fun MainSettingsScreenPreview() {
+    MainSettingsScreen()
 }

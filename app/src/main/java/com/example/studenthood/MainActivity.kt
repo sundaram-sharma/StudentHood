@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -16,9 +17,14 @@ import com.example.studenthood.presentation.SplashScreenPage
 import com.example.studenthood.presentation.authentication.ForgotPasswordPage
 import com.example.studenthood.presentation.authentication.LoginPage
 import com.example.studenthood.presentation.authentication.SignUpPage
-import com.example.studenthood.presentation.main.MainPage
+import com.example.studenthood.presentation.MainPage
+import com.example.studenthood.presentation.main.navigationDrawer.setting.HomeScreen
+import com.example.studenthood.presentation.main.navigationDrawer.setting.LogOutScreen
+import com.example.studenthood.presentation.main.navigationDrawer.setting.MainSettingsScreen
+//import com.example.studenthood.presentation.main.navigationDrawer.setting.ProfileScreen
 import com.example.studenthood.ui.theme.StudentHoodTheme
-import com.example.studenthood.util.Routes
+import com.example.studenthood.util.NavDrawerRoutes
+import com.example.studenthood.util.MainRoutes
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,30 +58,46 @@ fun DefaultPreview() {
 fun MainActivityPage(){
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Routes.MainScreen.route) {
+    NavHost(navController = navController, startDestination = MainRoutes.SplashScreen.route) {
 
-        composable(Routes.SplashScreen.route) { navBackStack ->
+        composable(MainRoutes.SplashScreen.route) { navBackStack ->
             SplashScreenPage(navController = navController)
         }
 
-        composable(Routes.SplashScreen.route) {
+        composable(MainRoutes.MainScreen.route) {
             MainPage(navController = navController)
         }
 
-        composable(Routes.LoginScreen.route) {
+        composable(MainRoutes.LoginScreen.route) {
             LoginPage(navController = navController)
         }
 
-        composable(Routes.SignUpScreen.route) {
+        composable(MainRoutes.SignUpScreen.route) {
             SignUpPage(navController = navController)
         }
 
-        composable(Routes.ForgotPasswordScreen.route) { navBackStack ->
+        composable(MainRoutes.ForgotPasswordScreen.route) { navBackStack ->
             ForgotPasswordPage(navController = navController)
         }
 
-        composable(Routes.ForgotPasswordScreen.route) { navBackStack ->
+        composable(MainRoutes.ForgotPasswordScreen.route) { navBackStack ->
             ForgotPasswordPage(navController = navController)
+        }
+
+        composable(NavDrawerRoutes.Home.route) {
+            HomeScreen()
+        }
+
+        //composable(NavDrawerRoutes.Profile.route) {
+        //    ProfileScreen()
+        //}
+
+        composable(NavDrawerRoutes.MainSettings.route) {
+            MainSettingsScreen()
+        }
+
+        composable(NavDrawerRoutes.LogOut.route) {
+            LogOutScreen()
         }
 
     }

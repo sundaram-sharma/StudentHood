@@ -1,5 +1,6 @@
 package com.example.studenthood.presentation.authentication
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
@@ -23,8 +24,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.ui.theme.Purple700
-import com.example.studenthood.util.Routes
+import com.example.studenthood.util.MainRoutes
 
 @Composable
 fun LoginPage(navController: NavHostController) {
@@ -34,7 +36,7 @@ fun LoginPage(navController: NavHostController) {
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(20.dp),
-            onClick = {navController.navigate(Routes.SignUpScreen.route) },
+            onClick = {navController.navigate(MainRoutes.SignUpScreen.route) },
             style = TextStyle(
                 fontSize = 14.sp,
                 fontFamily = FontFamily.Default,
@@ -84,7 +86,7 @@ fun LoginPage(navController: NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
         ClickableText(
             text = AnnotatedString("Forgot password?"),
-            onClick = { navController.navigate(Routes.ForgotPasswordScreen.route) },
+            onClick = { navController.navigate(MainRoutes.ForgotPasswordScreen.route) },
             style = TextStyle(
                 fontSize = 14.sp,
                 fontFamily = FontFamily.Default
@@ -94,13 +96,13 @@ fun LoginPage(navController: NavHostController) {
 }
 
 @Composable
-@Preview
+@Preview(name = "Light Mode", showBackground = true)
 fun LoginPagePreview(){
-    //LoginPage(0f)
+    LoginPage(rememberNavController())
 }
 
 @Composable
-@Preview
+@Preview(uiMode= Configuration.UI_MODE_NIGHT_YES, showBackground = true, name="Dark Mode")
 fun LoginPageDarkPreview(){
-    //LoginPage(0f)
+    LoginPage(rememberNavController())
 }
