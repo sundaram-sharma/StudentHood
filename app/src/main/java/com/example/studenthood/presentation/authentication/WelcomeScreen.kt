@@ -29,7 +29,7 @@ import com.example.studenthood.ui.theme.Purple700
 import com.example.studenthood.util.MainRoutes
 
 @Composable
-fun LoginPage(navController: NavHostController) {
+fun WelcomePage(navController: NavHostController) {
     Box(modifier = Modifier.fillMaxSize()) {
         ClickableText(
             text = AnnotatedString("New User"),
@@ -99,15 +99,9 @@ fun LoginPage(navController: NavHostController) {
         )
     }
 }
-
 @Composable
-@Preview(name = "Light Mode", showBackground = true)
-fun LoginPagePreview(){
-    LoginPage(rememberNavController())
+@Preview
+fun WelcomePagePreview(){
+    WelcomePage(rememberNavController())
 }
 
-@Composable
-@Preview(uiMode= Configuration.UI_MODE_NIGHT_YES, showBackground = true, name="Dark Mode")
-fun LoginPageDarkPreview(){
-    LoginPage(rememberNavController())
-}

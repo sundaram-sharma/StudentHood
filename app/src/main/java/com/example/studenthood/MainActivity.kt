@@ -9,21 +9,23 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.presentation.SplashScreenPage
-import com.example.studenthood.presentation.authentication.ForgotPasswordPage
 import com.example.studenthood.presentation.authentication.LoginPage
 import com.example.studenthood.presentation.authentication.SignUpPage
 import com.example.studenthood.presentation.MainPage
+import com.example.studenthood.presentation.authentication.ForgotPasswordPage1
+import com.example.studenthood.presentation.main.articles.ArticlesPage
+import com.example.studenthood.presentation.main.budget.BudgetPage
+import com.example.studenthood.presentation.main.homeSearch.HomeSearchPage
+import com.example.studenthood.presentation.main.jobSearch.JobSearchPage
 import com.example.studenthood.presentation.main.navigationDrawer.setting.HomeScreen
-import com.example.studenthood.presentation.main.navigationDrawer.setting.LogOutScreen
-import com.example.studenthood.presentation.main.navigationDrawer.setting.MainSettingsScreen
+import com.example.studenthood.presentation.main.tiffin.TiffinListingPage
+import com.example.studenthood.presentation.main.todo.ToDoPage
 //import com.example.studenthood.presentation.main.navigationDrawer.setting.ProfileScreen
 import com.example.studenthood.ui.theme.StudentHoodTheme
-import com.example.studenthood.util.NavDrawerRoutes
 import com.example.studenthood.util.MainRoutes
 
 class MainActivity : ComponentActivity() {
@@ -61,44 +63,54 @@ fun MainActivityPage(){
     NavHost(navController = navController, startDestination = MainRoutes.SplashScreen.route) {
 
         composable(MainRoutes.SplashScreen.route) { navBackStack ->
-            SplashScreenPage(navController = navController)
+            SplashScreenPage(navController)
         }
 
         composable(MainRoutes.MainScreen.route) {
-            MainPage(navController = navController)
+            MainPage(navController)
         }
 
         composable(MainRoutes.LoginScreen.route) {
-            LoginPage(navController = navController)
+            LoginPage(navController)
         }
 
         composable(MainRoutes.SignUpScreen.route) {
-            SignUpPage(navController = navController)
+            SignUpPage(navController)
         }
 
         composable(MainRoutes.ForgotPasswordScreen.route) { navBackStack ->
-            ForgotPasswordPage(navController = navController)
+            ForgotPasswordPage1(navController)
         }
 
         composable(MainRoutes.ForgotPasswordScreen.route) { navBackStack ->
-            ForgotPasswordPage(navController = navController)
+            HomeScreen(navController)
+        }
+        composable(MainRoutes.Article.route) { navBackStack ->
+            ArticlesPage(navController = navController)
         }
 
-        composable(NavDrawerRoutes.Home.route) {
-            HomeScreen()
+        composable(MainRoutes.Budget.route) { navBackStack ->
+            BudgetPage(navController = navController)
         }
 
-        //composable(NavDrawerRoutes.Profile.route) {
-        //    ProfileScreen()
-        //}
-
-        composable(NavDrawerRoutes.MainSettings.route) {
-            MainSettingsScreen()
+        composable(MainRoutes.HomeSearch.route) { navBackStack ->
+            HomeSearchPage(navController = navController)
         }
 
-        composable(NavDrawerRoutes.LogOut.route) {
-            LogOutScreen()
+        composable(MainRoutes.JobSearch.route) { navBackStack ->
+            JobSearchPage(navController = navController)
         }
+
+        composable(MainRoutes.Tiffin.route) { navBackStack ->
+            TiffinListingPage(navController = navController)
+        }
+
+        composable(MainRoutes.ToDo.route) { navBackStack ->
+            ToDoPage(navController = navController)
+        }
+
+
+
 
     }
 }

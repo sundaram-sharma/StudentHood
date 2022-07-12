@@ -3,9 +3,6 @@ package com.example.studenthood.presentation.main.navigationDrawer.setting
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
@@ -21,17 +18,20 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.R
 import com.google.android.gms.common.internal.SignInButtonImpl
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.purple_200))
     ) { Box(modifier = Modifier
-        .fillMaxWidth().padding(10.dp)
+        .fillMaxWidth()
+        .padding(10.dp)
         .weight(1f)){
         Text(text = "User Info")
     }
@@ -50,12 +50,15 @@ fun HomeScreen() {
                     Image(
                         painterResource(id = R.drawable.app_logo),
                         contentDescription ="Cart button icon",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Buy Coins",color = Color.White, modifier = Modifier.fillMaxWidth().weight(1f))
+                    Text(text = "House Search",color = Color.White, modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f))
 
                 }
 
@@ -74,12 +77,15 @@ fun HomeScreen() {
                     Image(
                         painterResource(id = R.drawable.app_logo),
                         contentDescription ="Cart button icon",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Buy Coins",color = Color.White, modifier = Modifier.fillMaxWidth().weight(1f))
+                    Text(text = "Job Search",color = Color.White, modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f))
 
                 }
 
@@ -89,7 +95,8 @@ fun HomeScreen() {
         }
 
         Row(modifier = Modifier //middle level box
-            .fillMaxWidth().padding(10.dp)
+            .fillMaxWidth()
+            .padding(10.dp)
             .weight(1f)){
 
             Button(onClick = {}, modifier = Modifier
@@ -103,12 +110,15 @@ fun HomeScreen() {
                     Image(
                         painterResource(id = R.drawable.app_logo),
                         contentDescription ="Cart button icon",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Buy Coins",color = Color.White, modifier = Modifier.fillMaxWidth().weight(1f))
+                    Text(text = "Tiffin Provider",color = Color.White, modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f))
 
                 }
 
@@ -127,12 +137,15 @@ fun HomeScreen() {
                     Image(
                         painterResource(id = R.drawable.app_logo),
                         contentDescription ="Cart button icon",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Buy Coins",color = Color.White, modifier = Modifier.fillMaxWidth().weight(1f))
+                    Text(text = "Articles",color = Color.White, modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f))
 
                 }
 
@@ -142,7 +155,8 @@ fun HomeScreen() {
         }
 
         Row(modifier = Modifier //middle level box
-            .fillMaxWidth().padding(10.dp)
+            .fillMaxWidth()
+            .padding(10.dp)
             .weight(1f)){
 
             Button(onClick = {}, modifier = Modifier
@@ -156,12 +170,15 @@ fun HomeScreen() {
                     Image(
                         painterResource(id = R.drawable.app_logo),
                         contentDescription ="Cart button icon",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Buy Coins",color = Color.White, modifier = Modifier.fillMaxWidth().weight(1f))
+                    Text(text = "Discussion",color = Color.White, modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f))
 
                 }
 
@@ -180,12 +197,15 @@ fun HomeScreen() {
                     Image(
                         painterResource(id = R.drawable.app_logo),
                         contentDescription ="Cart button icon",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Buy Coins",color = Color.White, modifier = Modifier.fillMaxWidth().weight(1f))
+                    Text(text = "Budget",color = Color.White, modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f))
 
                 }
 
@@ -218,6 +238,6 @@ fun HomeScreen() {
 @Composable
 @Preview
 fun HomeScreenPreview(){
-    HomeScreen()
+    HomeScreen(rememberNavController())
 }
 
