@@ -41,4 +41,23 @@ fun StudentHoodTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
         shapes = Shapes,
         content = content
     )
+
+
+}
+@Composable
+fun ProfilePageTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable() () -> Unit
+) {
+    val colors = if (darkTheme) {
+        DarkColorPalette
+    } else {
+        LightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        shapes = Shapes,
+        content = content
+    )
 }

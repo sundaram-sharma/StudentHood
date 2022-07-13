@@ -1,69 +1,48 @@
-package com.example.studenthood
+package com.example.studenthood.presentation.main.navigationDrawer
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.catalin.profilepage.ProfileScreen
+import com.example.studenthood.presentation.MainPage
 import com.example.studenthood.presentation.SplashPage
+import com.example.studenthood.presentation.authentication.ForgotPasswordPage1
 import com.example.studenthood.presentation.authentication.LoginPage
 import com.example.studenthood.presentation.authentication.SignUpPage
-import com.example.studenthood.presentation.MainPage
-import com.example.studenthood.presentation.authentication.ForgotPasswordPage1
 import com.example.studenthood.presentation.authentication.WelcomePage
-import com.example.studenthood.presentation.main.discussion.DiscussionPage
 import com.example.studenthood.presentation.main.budget.BudgetPage
 import com.example.studenthood.presentation.main.buyCoins.BuyCoinsPage
+import com.example.studenthood.presentation.main.discussion.DiscussionPage
 import com.example.studenthood.presentation.main.homeSearch.HomeSearchPage
 import com.example.studenthood.presentation.main.jobSearch.JobSearchPage
-import com.example.studenthood.presentation.main.navigationDrawer.setting.HomePage
+import com.example.studenthood.presentation.main.navigationDrawer.setting.*
 import com.example.studenthood.presentation.main.notifications.NotificationPage
 import com.example.studenthood.presentation.main.tiffin.TiffinListingPage
 import com.example.studenthood.presentation.main.todo.ToDoPage
-//import com.example.studenthood.presentation.main.navigationDrawer.setting.ProfileScreen
-import com.example.studenthood.ui.theme.StudentHoodTheme
 import com.example.studenthood.util.MainRoutes
+import com.example.studenthood.util.NavDrawerRoutes
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            StudentHoodTheme {
-
-                //val navController = rememberNavController()
-                //SplashScreenPage(navController = navController)
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    MainActivityPage()
-                }
-            }
+@Composable
+fun Navigation(navController: NavHostController) {
+    NavHost(navController, startDestination = NavDrawerRoutes.Home.route) {
+        composable(NavDrawerRoutes.Home.route) {
+            HomePage(navController)
         }
-    }
-}
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    StudentHoodTheme {
-        MainActivityPage()
-    }
-}
+        composable(NavDrawerRoutes.Profile.route) {
+            ProfileScreen()
+        }
 
-@Composable
-fun MainActivityPage(){
-    val navController = rememberNavController()
+        composable(NavDrawerRoutes.MainSettings.route) {
+            MainSettingsScreen()
+        }
 
-    NavHost(navController = navController, startDestination = MainRoutes.SplashScreen.route) {
+        composable(NavDrawerRoutes.LogOut.route) {
+            LogOutScreen()
+        }
 
         composable(MainRoutes.SplashScreen.route) { navBackStack ->
             SplashPage(navController)
@@ -124,8 +103,10 @@ fun MainActivityPage(){
             NotificationPage(navController = navController)
         }
 
-
-
-
     }
+}
+@Composable
+@Preview
+fun NavigationPreview(){
+    Navigation(rememberNavController())
 }

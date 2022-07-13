@@ -9,11 +9,11 @@ This application is a one stop platform for all the internation studentts coming
 To deploy this project run
 
 ```bash
-  npm run deploy
+  npm run deploy   
 ```
 
 
-## Features
+## Features 
 
 - Job Search
 - House Search
