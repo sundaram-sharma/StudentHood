@@ -28,7 +28,7 @@ import kotlinx.coroutines.delay
 
 
 @Composable
-fun SplashScreenPage(navController: NavHostController){
+fun SplashPage(navController: NavHostController){
     //Adding Animation to splash screen
     var startAnimation by remember { mutableStateOf(false) }
 
@@ -39,7 +39,7 @@ fun SplashScreenPage(navController: NavHostController){
         startAnimation = true
         delay(4000)
         navController.popBackStack() //to remove splash from backstack
-        navController.navigate(MainRoutes.MainScreen.route) //change the routes after Splash Screen
+        navController.navigate(MainRoutes.Welcome.route) //change the routes after Splash Screen
     }
 
 

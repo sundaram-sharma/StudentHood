@@ -12,16 +12,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.studenthood.presentation.SplashScreenPage
+import com.example.studenthood.presentation.SplashPage
 import com.example.studenthood.presentation.authentication.LoginPage
 import com.example.studenthood.presentation.authentication.SignUpPage
 import com.example.studenthood.presentation.MainPage
 import com.example.studenthood.presentation.authentication.ForgotPasswordPage1
-import com.example.studenthood.presentation.main.articles.ArticlesPage
+import com.example.studenthood.presentation.authentication.WelcomePage
+import com.example.studenthood.presentation.main.discussion.DiscussionPage
 import com.example.studenthood.presentation.main.budget.BudgetPage
+import com.example.studenthood.presentation.main.buyCoins.BuyCoinsPage
 import com.example.studenthood.presentation.main.homeSearch.HomeSearchPage
 import com.example.studenthood.presentation.main.jobSearch.JobSearchPage
-import com.example.studenthood.presentation.main.navigationDrawer.setting.HomeScreen
+import com.example.studenthood.presentation.main.navigationDrawer.setting.HomePage
+import com.example.studenthood.presentation.main.notifications.NotificationPage
 import com.example.studenthood.presentation.main.tiffin.TiffinListingPage
 import com.example.studenthood.presentation.main.todo.ToDoPage
 //import com.example.studenthood.presentation.main.navigationDrawer.setting.ProfileScreen
@@ -63,10 +66,10 @@ fun MainActivityPage(){
     NavHost(navController = navController, startDestination = MainRoutes.SplashScreen.route) {
 
         composable(MainRoutes.SplashScreen.route) { navBackStack ->
-            SplashScreenPage(navController)
+            SplashPage(navController)
         }
 
-        composable(MainRoutes.MainScreen.route) {
+        composable(MainRoutes.Main.route) {
             MainPage(navController)
         }
 
@@ -82,11 +85,11 @@ fun MainActivityPage(){
             ForgotPasswordPage1(navController)
         }
 
-        composable(MainRoutes.ForgotPasswordScreen.route) { navBackStack ->
-            HomeScreen(navController)
+        composable(MainRoutes.HomeSearch.route) { navBackStack ->
+            HomePage(navController)
         }
-        composable(MainRoutes.Article.route) { navBackStack ->
-            ArticlesPage(navController = navController)
+        composable(MainRoutes.Discussion.route) { navBackStack ->
+            DiscussionPage(navController = navController)
         }
 
         composable(MainRoutes.Budget.route) { navBackStack ->
@@ -107,6 +110,18 @@ fun MainActivityPage(){
 
         composable(MainRoutes.ToDo.route) { navBackStack ->
             ToDoPage(navController = navController)
+        }
+
+        composable(MainRoutes.Welcome.route) { navBackStack ->
+            WelcomePage(navController = navController)
+        }
+
+        composable(MainRoutes.BuyCoins.route) { navBackStack ->
+            BuyCoinsPage(navController = navController)
+        }
+
+        composable(MainRoutes.Notifications.route) { navBackStack ->
+            NotificationPage(navController = navController)
         }
 
 

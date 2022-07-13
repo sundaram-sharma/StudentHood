@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.R
-import com.example.studenthood.presentation.CustomTopAppBar
 
 @Composable
 fun ForgotPasswordPage2(navController: NavHostController) {

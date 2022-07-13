@@ -1,4 +1,4 @@
-package com.example.studenthood.presentation.main.homeSearch
+package com.example.studenthood.presentation.main.discussion
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -25,9 +25,9 @@ import com.example.studenthood.presentation.main.navigationDrawer.Drawer
 import com.example.studenthood.presentation.main.navigationDrawer.Navigation
 import com.example.studenthood.presentation.main.navigationDrawer.TopBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun HomeSearchPage(navController: NavHostController) {
-
+fun DiscussionPage(navController: NavHostController) {
 
     Column(
         modifier = Modifier
@@ -54,6 +54,6 @@ fun HomeSearchPage(navController: NavHostController) {
 }
 @Composable
 @Preview
-fun HomeSearchPagePreview(){
-    HomeSearchPage(rememberNavController())
+fun DiscussionPagePreview(){
+    DiscussionPage(rememberNavController())
 }

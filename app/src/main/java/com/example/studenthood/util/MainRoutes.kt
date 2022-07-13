@@ -4,15 +4,19 @@ sealed class MainRoutes(val route: String) {
     object SplashScreen : MainRoutes("SplashScreen") //Not used
     object LoginScreen : MainRoutes("LoginScreen")
     object SignUpScreen : MainRoutes("SignUpScreen")
-    object MainScreen : MainRoutes("MainScreen")
+    object Main : MainRoutes("MainScreen")
     object ForgotPasswordScreen : MainRoutes("ForgotPasswordScreen")
 
-    object Article : MainRoutes("Article")
-    object Budget : MainRoutes("Budget")
-    object HomeSearch : MainRoutes("HomeSearch")
-    object JobSearch : MainRoutes("JobSearch")
-    object Tiffin : MainRoutes("Tiffin")
-    object ToDo : MainRoutes("ToDo")
-    //object BackToHome : MainRoutes("ForgotPasswordScreen")
+    object Discussion : MainRoutes("ArticleScreen")
+    object Budget : MainRoutes("BudgetScreen")
+    object HomeSearch : MainRoutes("HomeSearchScreen")
+    object JobSearch : MainRoutes("JobSearchScreen")
+    object Tiffin : MainRoutes("TiffinScreen")
+    object ToDo : MainRoutes("ToDoScreen")
+    object Welcome : MainRoutes("WelcomeScreen")
+
+    object BuyCoins : MainRoutes("BuyCoinsScreen")
+
+    object Notifications : MainRoutes("NotificationsScreen")
 
 }

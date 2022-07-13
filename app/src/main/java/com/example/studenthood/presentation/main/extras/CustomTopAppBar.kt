@@ -7,7 +7,9 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun CustomTopAppBar(navController: NavHostController, title: String, showBackIcon : Boolean) {
@@ -28,4 +30,10 @@ fun CustomTopAppBar(navController: NavHostController, title: String, showBackIco
             null
         }
     )
+}
+
+@Composable
+@Preview
+fun preview(){
+    CustomTopAppBar(rememberNavController(), "",true)
 }

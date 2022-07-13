@@ -1,12 +1,12 @@
 package com.example.studenthood.presentation.main.tiffin
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,10 +19,15 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.R
-import com.example.studenthood.presentation.CustomTopAppBar
+import com.example.studenthood.presentation.main.navigationDrawer.Drawer
+import com.example.studenthood.presentation.main.navigationDrawer.Navigation
+import com.example.studenthood.presentation.main.navigationDrawer.TopBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun TiffinListingPage(navController: NavHostController) {
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,7 +44,15 @@ fun TiffinListingPage(navController: NavHostController) {
         )
 
         Button(onClick = {}, modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            Text(text = "Log Out", Modifier.padding(start = 10.dp).align(Alignment.CenterVertically))
+            Text(text = "Log Out",
+                Modifier
+                    .padding(start = 10.dp)
+                    .align(Alignment.CenterVertically))
         }
     }
+}
+@Composable
+@Preview
+fun BuyCoinsPagePreview(){
+    TiffinListingPage(rememberNavController())
 }

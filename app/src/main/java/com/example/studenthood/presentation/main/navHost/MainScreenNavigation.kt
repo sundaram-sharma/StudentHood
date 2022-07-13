@@ -9,12 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.catalin.profilepage.ProfileScreen
-import com.example.studenthood.presentation.main.navigationDrawer.Navigation
-import com.example.studenthood.presentation.main.navigationDrawer.setting.HomeScreen
-import com.example.studenthood.presentation.main.navigationDrawer.setting.LogOutScreen
-import com.example.studenthood.presentation.main.navigationDrawer.setting.MainSettingsScreen
-import com.example.studenthood.util.NavDrawerRoutes
+import com.example.studenthood.presentation.main.navigationDrawer.setting.HomePage
 
 
 @Composable
@@ -25,16 +20,16 @@ fun MainScreenNavigation(navController: NavHostController) {
     ) {
         NavHost(navController = navController, startDestination = "home"){
             composable("home"){
-                HomeScreen(navController)
+                HomePage(navController)
             }
             composable("home"){
-                HomeScreen(navController)
+                HomePage(navController)
             }
             composable("home"){
-                HomeScreen(navController)
+                HomePage(navController)
             }
             composable("home"){
-                HomeScreen(navController)
+                HomePage(navController)
             }
         }
     }

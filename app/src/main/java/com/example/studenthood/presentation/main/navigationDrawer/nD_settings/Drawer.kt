@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.R
+import com.example.studenthood.util.MainRoutes
 import com.example.studenthood.util.NavDrawerRoutes
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -27,11 +28,21 @@ import kotlinx.coroutines.launch
 @Composable
 fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: NavController) {
     val items = listOf(
-        NavDrawerRoutes.Home,
         NavDrawerRoutes.Profile,
+        NavDrawerRoutes.Home,
+
         NavDrawerRoutes.MainSettings,
         NavDrawerRoutes.LogOut
+    )
 
+    val itemsMain = listOf(
+        MainRoutes.Budget,
+        MainRoutes.BuyCoins,
+        MainRoutes.Discussion,
+        MainRoutes.HomeSearch,
+        MainRoutes.JobSearch,
+        MainRoutes.Tiffin,
+        MainRoutes.ToDo
     )
     Column(
         modifier = Modifier
@@ -87,6 +98,41 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
             })
 
         }
+
+        //trial code
+        /*
+        itemsMain.forEach { item ->
+            com.example.studenthood.presentation.main.navigationDrawer.DrawerItem(item = itemMain, selected = currentRoute == item.route, onItemClick = {
+
+                /* Add code later */
+                navController.navigate(item.route) {
+                    // Pop up to the start destination of the graph to
+                    // avoid building up a large stack of destinations
+                    // on the back stack as users select items
+                    navController.graph.startDestinationRoute?.let { route ->
+                        popUpTo(route) {
+                            saveState = true
+                        }
+                    }
+                    // Avoid multiple copies of the same destination when
+                    // reselecting the same item
+                    launchSingleTop = true
+                    // Restore state when reselecting a previously selected item
+                    restoreState = true
+                }
+                // Close drawer
+                scope.launch {
+                    scaffoldState.drawerState.close()
+                }
+
+            })
+
+        }
+
+         */
+        //trial code stop
+
+
         Spacer(modifier = Modifier.weight(1f))
         Text(
             text = "Team StudentHood",

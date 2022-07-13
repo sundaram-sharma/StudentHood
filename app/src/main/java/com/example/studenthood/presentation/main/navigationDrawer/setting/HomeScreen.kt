@@ -1,30 +1,27 @@
 package com.example.studenthood.presentation.main.navigationDrawer.setting
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.studenthood.R
-import com.google.android.gms.common.internal.SignInButtonImpl
+import com.example.studenthood.util.MainRoutes
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
 
 @Composable
-fun HomeScreen(navController: NavHostController) {
+fun HomePage(navController: NavHostController) {
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,7 +36,7 @@ fun HomeScreen(navController: NavHostController) {
             .fillMaxWidth()
             .weight(1f)){
 
-            Button(onClick = {}, modifier = Modifier
+            Button(onClick = {navController.navigate(MainRoutes.HomeSearch.route)}, modifier = Modifier
                 .size(20.dp)
                 .weight(1f)
                 .aspectRatio(1f)
@@ -49,7 +46,7 @@ fun HomeScreen(navController: NavHostController) {
 
                     Image(
                         painterResource(id = R.drawable.app_logo),
-                        contentDescription ="Cart button icon",
+                        contentDescription ="House Search icon",
                         modifier = Modifier
                             .fillMaxWidth()
                             .size(20.dp)
@@ -66,7 +63,7 @@ fun HomeScreen(navController: NavHostController) {
             }
 
 
-            Button(onClick = {}, modifier = Modifier
+            Button(onClick = {navController.navigate(MainRoutes.JobSearch.route)}, modifier = Modifier
                 .size(20.dp)
                 .weight(1f)
                 .aspectRatio(1f)
@@ -99,7 +96,7 @@ fun HomeScreen(navController: NavHostController) {
             .padding(10.dp)
             .weight(1f)){
 
-            Button(onClick = {}, modifier = Modifier
+            Button(onClick = {navController.navigate(MainRoutes.Tiffin.route)}, modifier = Modifier
                 .size(20.dp)
                 .weight(1f)
                 .aspectRatio(1f)
@@ -126,7 +123,7 @@ fun HomeScreen(navController: NavHostController) {
             }
 
 
-            Button(onClick = {}, modifier = Modifier
+            Button(onClick = {navController.navigate(MainRoutes.Discussion.route)}, modifier = Modifier
                 .size(20.dp)
                 .weight(1f)
                 .aspectRatio(1f)
@@ -136,14 +133,14 @@ fun HomeScreen(navController: NavHostController) {
 
                     Image(
                         painterResource(id = R.drawable.app_logo),
-                        contentDescription ="Cart button icon",
+                        contentDescription ="Discussion forum icon",
                         modifier = Modifier
                             .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Articles",color = Color.White, modifier = Modifier
+                    Text(text = "Discussion forum",color = Color.White, modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f))
 
@@ -159,7 +156,7 @@ fun HomeScreen(navController: NavHostController) {
             .padding(10.dp)
             .weight(1f)){
 
-            Button(onClick = {}, modifier = Modifier
+            Button(onClick = {navController.navigate(MainRoutes.ToDo.route)}, modifier = Modifier
                 .size(20.dp)
                 .weight(1f)
                 .aspectRatio(1f)
@@ -169,14 +166,14 @@ fun HomeScreen(navController: NavHostController) {
 
                     Image(
                         painterResource(id = R.drawable.app_logo),
-                        contentDescription ="Cart button icon",
+                        contentDescription ="ToDo icon",
                         modifier = Modifier
                             .fillMaxWidth()
                             .size(20.dp)
                             .weight(1f))
 
 
-                    Text(text = "Discussion",color = Color.White, modifier = Modifier
+                    Text(text = "ToDo",color = Color.White, modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f))
 
@@ -186,7 +183,7 @@ fun HomeScreen(navController: NavHostController) {
             }
 
 
-            Button(onClick = {}, modifier = Modifier
+            Button(onClick = {navController.navigate(MainRoutes.Budget.route)}, modifier = Modifier
                 .size(20.dp)
                 .weight(1f)
                 .aspectRatio(1f)
@@ -219,6 +216,7 @@ fun HomeScreen(navController: NavHostController) {
             .fillMaxWidth()
             )
             { Button(onClick = {
+                navController.navigate(MainRoutes.BuyCoins.route)
                 //your onclick code
             },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.DarkGray), modifier = Modifier
@@ -238,6 +236,6 @@ fun HomeScreen(navController: NavHostController) {
 @Composable
 @Preview
 fun HomeScreenPreview(){
-    HomeScreen(rememberNavController())
+    HomePage(rememberNavController())
 }
 

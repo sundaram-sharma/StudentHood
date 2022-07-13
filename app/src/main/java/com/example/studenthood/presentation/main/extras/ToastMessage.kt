@@ -9,4 +9,3 @@ import androidx.compose.ui.platform.LocalContext
 fun Toast(message: String){
     makeText(LocalContext.current,message, Toast.LENGTH_LONG).show()
 }
-
